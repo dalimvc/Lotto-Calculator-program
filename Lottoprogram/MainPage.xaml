@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="Lottoprogram.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lottoprogram"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!--Grid with 8 columns and 4 rows 
+    StackPanel is used to position items
+    TextBlock is used for labeling input fields and providing information
+    TextBox is used to get users input
+    Button is used to start the lotto-->
+    
+    <Grid Background="#FF00A2E2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180*"/>
+            <RowDefinition Height="92*"/>
+            <RowDefinition Height="153*"/>
+            <RowDefinition Height="295*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.ColumnSpan="6" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="45" Width="849">
+            <TextBlock Grid.Column="0" FontFamily="Calibri" FontSize="35" FontWeight="Bold" Text="Din lottorad:"></TextBlock>
+            <TextBox Grid.Column="1" Name="number1" Margin="40 0 5 0" FontSize="30" Width="80" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+            <TextBox Grid.Column="2" Name="number2" Margin="5 0 5 0" FontSize="30" Width="80" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+            <TextBox Grid.Column="3" Name="number3" Margin="5 0 5 0" FontSize="30" Width="80" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+            <TextBox Grid.Column="4" Name="number4" Margin="5 0 5 0" FontSize="30" Width="80" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+            <TextBox Grid.Column="5" Name="number5" Margin="5 0 5 0" FontSize="30" Width="80" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+            <TextBox Grid.Column="6" Name="number6" Margin="5 0 5 0" FontSize="30" Width="80" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+            <TextBox Grid.Column="7" Name="number7" Margin="5 0 5 0" FontSize="30" Width="80" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="6" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Height="50" Width="722">
+            <TextBlock Grid.Column="0" FontFamily="Calibri" FontSize="35" FontWeight="Bold" Text="Antal dragningar:"></TextBlock>
+            <TextBox Grid.Column="1" Name="nrDraws" Margin="40 0 40 0" FontSize="30" Width="200" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CornerRadius="4"/>
+            <Button Grid.Column="2" Name="startLottoButton" Click="RunLotto" Height="50" Width="190" HorizontalAlignment="Center" FontFamily="Calibri" FontSize="33" FontWeight="Bold" CornerRadius="4" Background="#006188" Foreground="White">Starta Lotto</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="8" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0">
+            <TextBlock Name="ErrorMessageTextBlock"  FontFamily="Calibri" FontSize="35" FontWeight="Bold" Foreground="#FFBF0303" FocusVisualPrimaryBrush="#FFBF0303"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="6" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Height="47" Width="761" Margin="0,35,0,0">
+            <TextBlock Grid.Column="0" FontFamily="Calibri" FontSize="35" FontWeight="Bold" Text="5 rätt:" Margin="10 0"></TextBlock>
+            <Border Background="#FF66c7ee" BorderBrush="#006188" BorderThickness="2" Padding="5 0" CornerRadius="4" Width="120">
+                <TextBlock Name="fiveMatches" Grid.Column="1" FontFamily="Calibri" FontSize="35" FontWeight="Bold"></TextBlock>
+            </Border>
+            <TextBlock Grid.Column="2" FontFamily="Calibri" FontSize="35" FontWeight="Bold" Text="6 rätt:" Margin="50 0 10 0"></TextBlock>
+            <Border Background="#FF66c7ee" BorderBrush="#006188" BorderThickness="2" Padding="5 0" CornerRadius="4" Width="120">
+                <TextBlock Name="sixMatches" Grid.Column="3" FontFamily="Calibri" FontSize="35" FontWeight="Bold"></TextBlock>
+            </Border>
+            <TextBlock Grid.Column="4" FontFamily="Calibri" FontSize="35" FontWeight="Bold" Text="7 rätt:" Margin="50 0 10 0"></TextBlock>
+            <Border Background="#FF66c7ee" BorderBrush="#006188" BorderThickness="2" Padding="5 0" CornerRadius="4" Width="120">
+                <TextBlock Name="SevenMatches" Grid.Column="5" FontFamily="Calibri" FontSize="35" FontWeight="Bold"></TextBlock>
+            </Border>
+        </StackPanel>
+
+    </Grid>
+</Page>

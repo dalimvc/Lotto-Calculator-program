@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="Calculator.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Calculator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    MaxWidth="350"
+    MaxHeight="550">
+
+    <!--Grid with 4 four colums and 5 rows-->
+    <!--Buttons are used for input and TextBlock for result display-->
+    <Grid Background="#FFE4E4E4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="#FFF9F9F9" BorderBrush="#FF040404" BorderThickness="1" CornerRadius="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="20">
+            <TextBlock Name="ResultData" FontFamily="Calibri" FontSize="30" FontWeight="Bold" Margin="10"></TextBlock>
+        </Border>
+        
+        <Button Click="ButtonNumber" Grid.Row="1" Grid.Column="0" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="1" />
+        <Button Click="ButtonNumber" Grid.Row="1" Grid.Column="1" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="2" />
+        <Button Click="ButtonNumber" Grid.Row="1" Grid.Column="2" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="3" />
+        <Button Click="ButtonOperation" Grid.Row="1" Grid.Column="3" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="+" />
+
+        <Button Click="ButtonNumber" Grid.Row="2" Grid.Column="0" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="4" />
+        <Button Click="ButtonNumber" Grid.Row="2" Grid.Column="1" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="5" />
+        <Button Click="ButtonNumber" Grid.Row="2" Grid.Column="2" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="6" />
+        <Button Click="ButtonOperation" Grid.Row="2" Grid.Column="3" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="23" BorderBrush="Black" BorderThickness="1" Content="-" />
+
+        <Button Click="ButtonNumber" Grid.Row="3" Grid.Column="0" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="7" />
+        <Button Click="ButtonNumber" Grid.Row="3" Grid.Column="1" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="8" />
+        <Button Click="ButtonNumber" Grid.Row="3" Grid.Column="2" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="9" />
+        <Button Click="ButtonOperation" Grid.Row="3" Grid.Column="3" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="*" />
+
+        <Button Click="ButtonC" Grid.Row="4" Grid.Column="0" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="C" />
+        <Button Click="ButtonNumber" Grid.Row="4" Grid.Column="1" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="0" />
+        <Button Click="ButtonEquals" Grid.Row="4" Grid.Column="2" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="=" />
+        <Button Click="ButtonOperation" Grid.Row="4" Grid.Column="3" FontFamily="Calibri" FontSize="35" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" BorderBrush="Black" BorderThickness="1" Content="/" />
+    </Grid>
+</Page>
