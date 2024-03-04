@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -116,11 +117,11 @@ namespace Lottoprogram
         public List<int> generateLottoNumbers()
         {
             List<int> generatedLottoNumbers = new List<int>();
-            generatedLottoNumbers.Add(randomNumber.Next(1, 35));
+            generatedLottoNumbers.Add(randomNumber.Next(1, 36));
             int counter = 0;
             while (counter < 6)
             {
-                int lottoNumber = randomNumber.Next(1, 35);
+                int lottoNumber = randomNumber.Next(1, 36);
                 if (!generatedLottoNumbers.Contains(lottoNumber))
                 {
                     generatedLottoNumbers.Add(lottoNumber);
@@ -142,44 +143,31 @@ namespace Lottoprogram
                 generatedLottoSeries.Add(generateLottoNumbers());
                 counter++;
             }
-            return generatedLottoSeries;
+            return generatedLottoSeries;       
         }
 
         //counting number if matches between users input and computr's generated lotto series
         //it loops through outer list and than throught each inner list that contains 1 lotto series
-        //method checks in each inner list how many mathes there are with user's input
+        //then it checks how many mathes, same elements are in the inner list and the list that contains users numbers
         //than number of mathes will uppdate
-        //first checks 7s, than 6s and at the end 5s in order to awoid 7s being counted in 5s and 6s
-        public int CountOccurrences()
+        //at the end fives and sixes will be updated as fives contains also number of sixes and sevens and sixes contain both number of sixes and sevens
+        public void CountOccurrences()
         {
             sevens = 0;
             sixes = 0;
             fives = 0;
-            int counterMatches = 0;
-            foreach (List<int> lottoCombination in generatedLottoSeries)
+            foreach (List<int> innerList in generatedLottoSeries)
             {
-                counterMatches = 0;
-                foreach (int number in enteredLottoNumbers)
-                {
-                    if (lottoCombination.Contains(number))
-                    {
-                        counterMatches++;
-                    }
-                    if (counterMatches == 7)
-                    {
-                        sevens++;
-                    }
-                    else if (counterMatches == 6)
-                    {
-                        sixes++;
-                    }
-                    else if (counterMatches == 5)
-                    {
-                        fives++;
-                    }
-                }
+                int count = innerList.Intersect(enteredLottoNumbers).Count();
+                if (count == 5)
+                    fives++;
+                else if (count == 6)
+                    sixes++;
+                else if (count == 7)
+                    sevens++;
             }
-            return counterMatches;
+            fives = fives - sixes - sevens;
+            sixes = sixes - sevens;
         }
 
         //based on result from a method CountOccurrences(), text that shows matches updates
