@@ -91,7 +91,7 @@ namespace Lottoprogram
         //method checks input and if it is not correct appropriate error message will be shown
         public void CheckNumberValidity()
         {
-            for (int i = 0; i < enteredLottoNumbers.Count - 1; i++)
+            for (int i = 0; i < enteredLottoNumbers.Count -1 ; i++)
             {
                 if (enteredLottoNumbers[i] < 1 || enteredLottoNumbers[i] > 35)
                 {
@@ -108,6 +108,12 @@ namespace Lottoprogram
                     checkInput = false;
                     errorMessage = "Fältet är obligatoriskt och det måste vara ett positivt nummer! Felaktig inmatning.";
                 }
+            }
+            //checking last number
+            if (enteredLottoNumbers[enteredLottoNumbers.Count -1] < 1 || enteredLottoNumbers[enteredLottoNumbers.Count -1] > 35)
+            {
+                checkInput = false;
+                errorMessage = "Numren måste vara mellan 1 och 35! Felaktig inmatning.";
             }
             ErrorMessageTextBlock.Text = errorMessage;
         }
