@@ -98,22 +98,22 @@ namespace Lottoprogram
                     checkInput = false;
                     errorMessage = "Numren måste vara mellan 1 och 35! Felaktig inmatning.";
                 }
-                else if (enteredLottoNumbers[i] == enteredLottoNumbers[i + 1])
-                {
-                    checkInput = false;
-                    errorMessage = "Du kan inte ange samma nummer mer än en gång! Felaktig inmatning.";
-                }
-                else if (rounds <= 0)
-                {
-                    checkInput = false;
-                    errorMessage = "Fältet är obligatoriskt och det måste vara ett positivt nummer! Felaktig inmatning.";
-                }
+            }
+            if (enteredLottoNumbers.GroupBy(x => x).Any(g => g.Count() > 1))
+            {
+                checkInput = false;
+                errorMessage = "Du kan inte ange samma nummer mer än en gång! Felaktig inmatning.";
             }
             //checking last number
-            if (enteredLottoNumbers[enteredLottoNumbers.Count -1] < 1 || enteredLottoNumbers[enteredLottoNumbers.Count -1] > 35)
+            else if (enteredLottoNumbers[enteredLottoNumbers.Count -1] < 1 || enteredLottoNumbers[enteredLottoNumbers.Count -1] > 35)
             {
                 checkInput = false;
                 errorMessage = "Numren måste vara mellan 1 och 35! Felaktig inmatning.";
+            }
+            else if (rounds <= 0)
+            {
+                checkInput = false;
+                errorMessage = "Fältet är obligatoriskt och det måste vara ett positivt nummer! Felaktig inmatning.";
             }
             ErrorMessageTextBlock.Text = errorMessage;
         }
